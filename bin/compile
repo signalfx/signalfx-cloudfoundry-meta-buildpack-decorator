@@ -18,5 +18,5 @@ mkdir -p $install_dir
 mkdir -p $build_path/.profile.d
 cp $root_dir/run-collectd.sh $build_path/.profile.d/run-collectd.sh
 
-tar -zxf $root_dir/collectd.tar.gz -C $install_dir 2>/dev/null
+tar -zxf $root_dir/collectd-bundle*.tar.gz -C $install_dir 2>/dev/null
 echo 'Done installing SignalFx agent.'

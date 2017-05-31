@@ -26,7 +26,7 @@ depending on your needs.  If you do add back these to the collectd config, note
 that they will be double reported.
 
 To configure the API token for SignalFx, add an envvar to your application
-manifest called `SIGNALFX_API_TOKEN` with that value.
+manifest called `SIGNALFX_ACCESS_TOKEN` with that value.
 
 If you would like to enable system metrics inside the containers (i.e. to be
 able to use the collectd dashboards to view your containers), set the envvar

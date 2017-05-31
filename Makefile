@@ -1,5 +1,9 @@
 BUILDPACK_NAME := signalfx_decorator
-INCLUDED_FILES := bin/* collectd.tar.gz run-collectd.sh
+BUNDLE_VERSION := 5.7.0-1
+INCLUDED_FILES := bin/* collectd-bundle-$(BUNDLE_VERSION).tar.gz run-collectd.sh
+
+collectd-bundle-$(BUNDLE_VERSION).tar.gz:
+	wget https://github.com/signalfx/collectd-build-bundle/releases/download/v$(BUNDLE_VERSION)/collectd-bundle-$(BUNDLE_VERSION).tar.gz
 
 $(BUILDPACK_NAME).zip: $(INCLUDED_FILES)
 	rm -f $(BUILDPACK_NAME).zip
@@ -8,3 +12,5 @@ $(BUILDPACK_NAME).zip: $(INCLUDED_FILES)
 push-to-cf: $(BUILDPACK_NAME).zip
 	cf delete-buildpack -f $(BUILDPACK_NAME)
 	cf create-buildpack $(BUILDPACK_NAME) $(BUILDPACK_NAME).zip 99 --enable
+
+.PHONY: push-to-cf
