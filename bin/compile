@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+[ "$BUILDPACK_XTRACE" ] && set -o xtrace
+
+echo 'Installing SignalFx agent...'
+
+bin_dir=$(cd $(dirname $0); pwd) # absolute path
+root_dir=$(dirname $bin_dir)
+
+build_path=$1
+cache_path=$2
+
+install_dir=$build_path
+mkdir -p $install_dir
+
+mkdir -p $build_path/.profile.d
+cp $root_dir/run-collectd.sh $build_path/.profile.d/run-collectd.sh
+
+tar -zxf $root_dir/collectd-bundle*.tar.gz -C $install_dir 2>/dev/null
+echo 'Done installing SignalFx agent.'
