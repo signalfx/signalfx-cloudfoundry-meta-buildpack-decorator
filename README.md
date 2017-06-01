@@ -34,6 +34,13 @@ able to use the collectd dashboards to view your containers), set the envvar
 by default disabled, so only the metrics specified by configuration in the
 `.signalfx` dir will be sent without this setting.
 
+## Versioning
+This buildpack follows the versioning of the
+[collectd-bundle](https://github.com/signalfx/collectd-build-bundle/).  If
+there are multiple releases within a single release of the collectd bundle,
+they will be indicated by a `.<num>` suffix, where num starts with 1.  The
+first release with a new collectd bundle does not have that suffix.
+
 
 ## Dev Notes
 This buildpack depends on our [collectd

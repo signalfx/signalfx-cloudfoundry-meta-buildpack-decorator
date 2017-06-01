@@ -4,13 +4,13 @@ set -eo pipefail
 
 [ "$BUILDPACK_XTRACE" ] && set -o xtrace
 
-echo 'Installing SignalFx agent...'
-
 bin_dir=$(cd $(dirname $0); pwd) # absolute path
 root_dir=$(dirname $bin_dir)
 
 build_path=$1
 cache_path=$2
+
+echo "Installing SignalFx agent $(cat $root_dir/VERSION)"
 
 install_dir=$build_path
 mkdir -p $install_dir
