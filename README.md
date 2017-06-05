@@ -34,6 +34,11 @@ able to use the collectd dashboards to view your containers), set the envvar
 by default disabled, so only the metrics specified by configuration in the
 `.signalfx` dir will be sent without this setting.
 
+If you need to monitor an application through JMX inside your container, you
+can enable JMX support by adding the envvar `ENABLE_JMX=true` in your app
+manifest.  Do not enable this unless you need it, since enabling Java in
+collectd causes it to consume significantly greater amounts of memory.
+
 ## Versioning
 This buildpack follows the versioning of the
 [collectd-bundle](https://github.com/signalfx/collectd-build-bundle/).  If
