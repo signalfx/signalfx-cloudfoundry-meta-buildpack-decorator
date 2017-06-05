@@ -11,7 +11,7 @@ First you have to [add the
 meta-buildpack](https://github.com/cf-platform-eng/meta-buildpack#how-to-install-the-meta-buildpack)
 and this decorator to your Cloud Foundry environment.  To add this decorator,
 download a [release zip from
-Github](https://github.com/signalfx/signalfx-buildpack-decorator/releases) and
+Github](https://github.com/signalfx/signalfx-cloudfoundry-buildpack-decorator/releases) and
 push it to CF with the `create-buildpack` command.
 
 ### Configuration
@@ -20,7 +20,7 @@ Next, create a directory called `.signalfx` in your app that contains collectd
 configuration files specific to what you want to monitor.  This buildpack is
 configured out of the box to report only specific metadata about the container
 and nothing else (e.g. no metrics for CPU, memory, network, etc.).  Our
-[Firehose nozzle](https://github.com/signalfx/signalfx-bridge) sends basic
+[Firehose nozzle](https://github.com/signalfx/signalfx-cloudfoundry-bridge) sends basic
 container metrics (CPU, memory, and disk usage), which might be enough
 depending on your needs.  If you do add back these to the collectd config, note
 that they will be double reported.
