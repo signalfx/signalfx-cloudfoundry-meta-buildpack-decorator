@@ -15,7 +15,7 @@ export SFX_DIM_app_instance_index=$(vcap_app_jq '.instance_index')
 export SFX_DIM_space_name=$(vcap_app_jq '.space_name')
 export ENABLE_JMX=${ENABLE_JMX:-false}
 
-export HOSTNAME=${SFX_DIM_app_name}-${SFX_DIM_app_instance_index}
+export HOSTNAME=${CF_INSTANCE_IP}
 
 if [[ $SIGNALFX_ENABLE_SYSTEM_METRICS != "yes" ]] && \
    [[ $SIGNALFX_ENABLE_SYSTEM_METRICS != "true" ]]
